@@ -128,7 +128,6 @@ alias l='ls -CF'                              #
 # Some example functions
 function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
-<<<<<<< HEAD
 SSH_ENV="$HOME/.ssh/environment"
 
 # start the ssh-agent
@@ -173,5 +172,3 @@ else
         start_agent
     fi
 fi
-=======
->>>>>>> 7d70af0dfb706250f2d542b3d31c65deacf3e3c2
