@@ -3,7 +3,6 @@
 	email = gunnar@gunnarahlberg.com
 [github]
 	user = gunnar@gunnarahlberg.com
-	token = cf524c71b1bcbeb3fa8738249a7d71cc
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
