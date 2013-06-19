@@ -49,3 +49,30 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/twittering-mode")
 (require 'twittering-mode)
 
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacs.d/backups"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+
+(define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/Dropbox/orgmode/notes.org"))
+(setq org-return-follow-link t)
+(add-hook 'org-mode-hook 'djbc-count-words-connect)
+(defun djcb-count-words-connect (local-set-key (kbd "<f11>") 'djcb-count-words))
+(defun djcb-count-words (&optional begin end)
+  "count words between BEGIN and END (region); if no region defined, count words in buffer"
+  (interactive "r")
+  (let ((b (if mark-active begin (point-min)))
+      (e (if mark-active end (point-max))))
+    (message "Word count: %s" (how-many "\\w+" b e))))
+
+;; Pomodoro by Tomatinho
+(require 'tomatinho)
+(global-set-key (kbd "<f12>") 'tomatinho)
